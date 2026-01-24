@@ -70,7 +70,40 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu Styles injected here for simplicity in vanilla CSS context */}
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <div style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    background: 'rgba(3, 0, 20, 0.95)',
+                    backdropFilter: 'blur(20px)',
+                    borderBottom: '1px solid var(--border-glass)',
+                    padding: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1.5rem',
+                    alignItems: 'center',
+                    height: 'calc(100vh - 80px)', // adjust based on header height
+                    overflowY: 'auto'
+                }}>
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            style={{
+                                color: 'var(--text-primary)',
+                                fontSize: '1.25rem',
+                                fontWeight: 500
+                            }}
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                </div>
+            )}
             <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
