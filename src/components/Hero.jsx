@@ -38,12 +38,12 @@ const Hero = () => {
             }} />
 
             <div className="container">
-                <div style={{ 
-                    maxWidth: '1200px', 
-                    margin: '0 auto', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '4rem', 
+                <div style={{
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4rem',
                     flexWrap: 'wrap'
                 }}>
                     <div style={{ flex: 1, minWidth: '300px' }}>
@@ -79,7 +79,7 @@ const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            A passionate Frontend Developer and UI/UX Designer crafting beautiful, user-centric web applications with modern technologies.
+                            Specializing in .NET (C#) and Angular (Fullstack), AI Integration, and Software Consulting.
                         </motion.p>
 
                         <motion.div
@@ -108,7 +108,7 @@ const Hero = () => {
                         </motion.div>
                     </div>
 
-                    <motion.div 
+                    <motion.div
                         style={{ flex: 1, minWidth: '300px', display: 'flex', justifyContent: 'center' }}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -124,14 +124,14 @@ const Hero = () => {
                             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
                             border: '4px solid rgba(255,255,255,0.1)'
                         }}>
-                            <img 
-                                src={profileImg} 
-                                alt="Profile" 
-                                style={{ 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    objectFit: 'cover' 
-                                }} 
+                            <img
+                                src={profileImg}
+                                alt="Profile"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover'
+                                }}
                             />
                         </div>
                     </motion.div>

@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
-import About from './components/About';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
+import About from './components/About';
 
 function App() {
   // Smooth scroll behavior for anchor links
@@ -20,6 +21,7 @@ function App() {
       <Hero />
       <Projects />
       <About />
+      <Contact />
       <Footer />
     </main>
   );

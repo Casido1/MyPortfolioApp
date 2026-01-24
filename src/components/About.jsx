@@ -1,138 +1,89 @@
-import React, { useState } from 'react';
-import { Mail, Send, MapPin, Phone } from 'lucide-react';
+import React from 'react';
+import { Code, Database, Brain, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Simulate submission
-        console.log('Form submitted', formData);
-        alert('Thanks for your message! This is a demo.');
-    };
+    const skills = [
+        {
+            icon: <Code size={24} />,
+            title: "Fullstack Development",
+            description: "Expertise in .NET (C#) and Angular for building robust, scalable web applications."
+        },
+        {
+            icon: <Brain size={24} />,
+            title: "AI Integration",
+            description: "Leveraging artificial intelligence to create smart, adaptive, and efficient solutions."
+        },
+        {
+            icon: <Rocket size={24} />,
+            title: "Software Consulting",
+            description: "Providing strategic guidance to help businesses optimize their software architecture and processes."
+        }
+    ];
 
     return (
-        <section id="contact" style={{ padding: '8rem 0', background: 'linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary))' }}>
+        <section id="about" style={{ padding: '6rem 0', position: 'relative' }}>
+            {/* Background Gradient */}
+            <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                background: 'radial-gradient(ellipse at left, rgba(99,102,241,0.05) 0%, rgba(0,0,0,0) 50%)',
+                zIndex: -1,
+                pointerEvents: 'none'
+            }} />
+
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'start' }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    style={{ textAlign: 'center', marginBottom: '4rem' }}
+                >
+                    <h2 className="gradient-text">About Me</h2>
+                    <p style={{ margin: '0 auto', maxWidth: '700px', fontSize: '1.125rem', color: 'var(--text-secondary)' }}>
+                        I am a dedicated software engineer with a passion for solving complex problems through technology.
+                        My journey involves deep-diving into modern frameworks and emerging tech to deliver value-driven results.
+                    </p>
+                </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h2 className="gradient-text" style={{ marginBottom: '1.5rem' }}>Let's work together</h2>
-                        <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.125rem' }}>
-                            I'm currently available for freelance projects and open to full-time opportunities.
-                            If you have a project in mind or just want to say hi, feel free to reach out!
-                        </p>
-
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div style={{ padding: '0.75rem', background: 'rgba(99, 102, 241, 0.1)', borderRadius: '50%', color: 'var(--accent-primary)' }}>
-                                    <Mail size={24} />
-                                </div>
-                                <div>
-                                    <h4 style={{ marginBottom: '0.25rem' }}>Email</h4>
-                                    <a href="mailto:hello@example.com" style={{ color: 'var(--text-secondary)' }}>hello@example.com</a>
-                                </div>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '2rem'
+                }}>
+                    {skills.map((skill, index) => (
+                        <motion.div
+                            key={index}
+                            className="glass-panel"
+                            style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            whileHover={{ y: -5, borderColor: 'var(--accent-primary)' }}
+                        >
+                            <div style={{
+                                width: '50px',
+                                height: '50px',
+                                background: 'rgba(99, 102, 241, 0.1)',
+                                borderRadius: '12px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: 'var(--accent-primary)'
+                            }}>
+                                {skill.icon}
                             </div>
-
-                            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div style={{ padding: '0.75rem', background: 'rgba(168, 85, 247, 0.1)', borderRadius: '50%', color: 'var(--accent-secondary)' }}>
-                                    <MapPin size={24} />
-                                </div>
-                                <div>
-                                    <h4 style={{ marginBottom: '0.25rem' }}>Location</h4>
-                                    <p style={{ color: 'var(--text-secondary)' }}>San Francisco, CA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Form */}
-                    <motion.div
-                        className="glass-panel"
-                        style={{ padding: '2.5rem' }}
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <h3 style={{ marginBottom: '2rem' }}>Send a Message</h3>
-                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Name</label>
-                                <input
-                                    type="text"
-                                    required
-                                    value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    style={{
-                                        width: '100%',
-                                        padding: '0.75rem 1rem',
-                                        background: 'rgba(255,255,255,0.05)',
-                                        border: '1px solid var(--border-glass)',
-                                        borderRadius: 'var(--radius-sm)',
-                                        color: 'white',
-                                        outline: 'none'
-                                    }}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = 'var(--border-glass)'}
-                                />
-                            </div>
-
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Email</label>
-                                <input
-                                    type="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    style={{
-                                        width: '100%',
-                                        padding: '0.75rem 1rem',
-                                        background: 'rgba(255,255,255,0.05)',
-                                        border: '1px solid var(--border-glass)',
-                                        borderRadius: 'var(--radius-sm)',
-                                        color: 'white',
-                                        outline: 'none'
-                                    }}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = 'var(--border-glass)'}
-                                />
-                            </div>
-
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Message</label>
-                                <textarea
-                                    required
-                                    rows="4"
-                                    value={formData.message}
-                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    style={{
-                                        width: '100%',
-                                        padding: '0.75rem 1rem',
-                                        background: 'rgba(255,255,255,0.05)',
-                                        border: '1px solid var(--border-glass)',
-                                        borderRadius: 'var(--radius-sm)',
-                                        color: 'white',
-                                        outline: 'none',
-                                        resize: 'vertical'
-                                    }}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = 'var(--border-glass)'}
-                                />
-                            </div>
-
-                            <button type="submit" className="btn btn-primary" style={{ marginTop: '1rem', width: '100%' }}>
-                                Send Message <Send size={18} />
-                            </button>
-                        </form>
-                    </motion.div>
-
+                            <h3 style={{ fontSize: '1.25rem' }}>{skill.title}</h3>
+                            <p style={{ color: 'var(--text-secondary)' }}>
+                                {skill.description}
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

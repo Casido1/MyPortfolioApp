@@ -57,9 +57,7 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a href="#contact" className="btn btn-secondary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem' }}>
-                        Let's Talk
-                    </a>
+
                 </div>
 
                 {/* Mobile Toggle */}
