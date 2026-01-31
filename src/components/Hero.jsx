@@ -122,7 +122,7 @@ const Hero = () => {
                             borderRadius: '30px',
                             overflow: 'hidden',
                             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
-                            border: '4px solid rgba(255,255,255,0.1)'
+                            border: '4px solid var(--border-glass)'
                         }}>
                             <img
                                 src={profileImg}

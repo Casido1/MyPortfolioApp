@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +29,7 @@ const Navbar = () => {
                 position: 'fixed',
                 width: '100%',
                 zIndex: 1000,
-                backgroundColor: isScrolled ? 'rgba(3, 0, 20, 0.7)' : 'transparent',
+                backgroundColor: isScrolled ? 'var(--nav-bg)' : 'transparent',
                 backdropFilter: isScrolled ? 'blur(10px)' : 'none',
                 borderBottom: isScrolled ? '1px solid var(--border-glass)' : 'none',
                 padding: isScrolled ? '1rem 0' : '1.5rem 0',
@@ -57,17 +58,21 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-
+                    <div style={{ marginLeft: '1rem' }}>
+                        <ThemeToggle />
+                    </div>
                 </div>
 
                 {/* Mobile Toggle */}
-                <button
-                    className="mobile-toggle"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    style={{ display: 'none', background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="mobile-toggle" style={{ display: 'none', alignItems: 'center', gap: '1rem' }}>
+                    <ThemeToggle />
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        style={{ background: 'none', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu Overlay */}
@@ -77,7 +82,7 @@ const Navbar = () => {
                     top: '100%',
                     left: 0,
                     right: 0,
-                    background: 'rgba(3, 0, 20, 0.95)',
+                    background: 'var(--bg-primary)',
                     backdropFilter: 'blur(20px)',
                     borderBottom: '1px solid var(--border-glass)',
                     padding: '2rem',
@@ -107,7 +112,7 @@ const Navbar = () => {
             <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
-          .mobile-toggle { display: block !important; }
+          .mobile-toggle { display: flex !important; }
         }
       `}</style>
         </nav>
