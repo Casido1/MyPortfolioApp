@@ -10,11 +10,11 @@ const Projects = () => {
         {
             id: 1,
             title: 'MediLink AI',
-            description: 'A medical consultation orchestration platform built on .NET 10. It leverages the Microsoft Agent Framework (unifying Semantic Kernel and AutoGen) to facilitate a safe, peer-reviewed diagnostic process between specialized AI agents.',
-            tags: ['.NET 10', 'AI Agents', 'Semantic Kernel', 'AutoGen'],
+            description: 'A medical consultation orchestration platform with a React/Vite frontend and .NET 10 backend. It leverages the Microsoft Agent Framework (unifying Semantic Kernel and AutoGen) to facilitate a safe, peer-reviewed diagnostic process between specialized AI agents.',
+            tags: ['React', 'Vite', '.NET 10', 'AI Agents', 'Semantic Kernel'],
             image: medilink,
             link: 'https://medilink-ui.netlify.app/',
-            github: '#'
+            github: 'https://github.com/Casido1/MediLink.AI.Service'
         },
         {
             id: 2,
