@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
-import project1 from '../assets/project1.png';
+import medilink from '../assets/medilink.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
 
@@ -9,11 +9,11 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: 'Global Analytics Hub',
-            description: 'A comprehensive data visualization dashboard for enterprise analytics, featuring real-time data streaming and customizable widgets.',
-            tags: ['React', 'D3.js', 'Node.js', 'Socket.io'],
-            image: project1,
-            link: '#',
+            title: 'MediLink AI',
+            description: 'A medical consultation orchestration platform built on .NET 10. It leverages the Microsoft Agent Framework (unifying Semantic Kernel and AutoGen) to facilitate a safe, peer-reviewed diagnostic process between specialized AI agents.',
+            tags: ['.NET 10', 'AI Agents', 'Semantic Kernel', 'AutoGen'],
+            image: medilink,
+            link: 'https://medilink-ui.netlify.app/',
             github: '#'
         },
         {
